@@ -20,9 +20,9 @@ process FEATURECOUNTS {
     """
     featureCounts -p -M -O --primary \\
     -a $inputGFF \\
-    -t gene \\
+    -t $params.countFeature \\
     -o countData.tsv \\
-    -g ID \\
+    -g $params.featureIdentifier \\
     $sortedBamFiles
     """
 
