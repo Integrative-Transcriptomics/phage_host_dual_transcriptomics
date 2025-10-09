@@ -112,6 +112,35 @@ def getMeanSD(df):
 
     return pd.DataFrame(means), pd.DataFrame(sds)
 
+# Calculation of stabilized variance (expression value adjusted)
+
+def stabilizedVariance(df):
+    labels = list()
+    
+    i = 0
+    while i < df.shape[0]:
+
+        # Get array of expression values at time points
+        expressions = list(df.iloc[i,0:(df.shape[1]-4)])
+
+        # Get mean expression for the gene
+        exprMean = np.mean(np.array(expressions))
+
+        # Get the variance for the gene
+        varGene = np.var(np.array(expressions))
+
+        # Stabilized variance
+        stableVarGene = varGene/exprMean
+
+        labels.append(stableVarGene)
+
+        i += 1
+
+    tpmOut = df.copy()
+    tpmOut['Variance'] = labels
+
+    return tpmOut
+
 # Use TPM-normalized means to scale to highest expression per gene across time points
 
 def proportionalExp(df):
@@ -121,6 +150,16 @@ def proportionalExp(df):
         normExp.iloc[i,:] = normExp.iloc[i,:]/maxValue
 
     return normExp
+
+# Function to fill in missing symbols by geneid.
+
+def fillSymbols(df):
+    df_new = df.copy()
+    index = df.index.to_list()
+    for i in range(0,df.shape[0]):
+        if (df.iloc[i,-1:].values == None):
+            df_new.iloc[i,-1:] = index[i]
+    return df_new
 
 # Make gene symbols unique using index (gene IDs)
 

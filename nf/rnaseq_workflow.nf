@@ -1,8 +1,5 @@
 #!/usr/bin/env nextflow
 
-//params.adapters1 = "/ceph/ibmi/it/projects/ML_BI/PhageSEQ/input/trimming/tso_g_wo_hp.fasta"
-//params.adapters2 = "/ceph/ibmi/it/projects/ML_BI/PhageSEQ/input/trimming/ilmn_20_2_seqs.fasta"
-
 
 include { BUILDHISAT2BASE } from './modules/buildHisatBase'
 include { PROCESSRNASEQ } from './subworkflows/perReadProcessing'

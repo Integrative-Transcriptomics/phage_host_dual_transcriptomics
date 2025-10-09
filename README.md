@@ -1,6 +1,6 @@
 # Processing of dual RNA-seq data for the PhageExpressionAtlas
 
-This repo contains the code for processing dual RNA-seq data as currently hosted in the PhageExpressionAtlas (**LINK**). First, a nextflow pipeline is used to trim paired-end or single-end RNA-seq reads, check their quality, map the reads to a dual genome, filter the alignments and count reads. A Jupyter Notebook is then used to annotate pre-process the count data for storage and analysis with the PhageExpressionAtlas.
+This repo contains the code for processing dual RNA-seq data as currently hosted in the [PhageExpressionAtlas](phageexpressionatlas.cs.uni-tuebingen.de). First, a nextflow pipeline is used to trim paired-end or single-end RNA-seq reads, check their quality, map the reads to a dual genome, filter the alignments and count reads. A Jupyter Notebook is then used to annotate pre-process the count data for storage and analysis with the PhageExpressionAtlas.
 
 
 ## Nextflow pipeline
@@ -91,13 +91,21 @@ The dual RNA-seq pipeline produces the following output:
 
 ## Pre-processing with the Juypter notebook
 
+The counts table and gff file produced by the pipeline serve as input for the Postprocessing notebook ```/downstream_processing/Processing_notebook_template.ipynb```. Also, the metadata for the raw sequencing data will be helpful to annotate sample names with the correct time point and replicate declaration.  
 
-### Steps
 
+### Steps & output
 
-### Output
+1. Data loading 
+2. Annotation with time points, in silico rRNA depletion and data normalization
+3. PCA-based quality control and cleaning of data by outlier sample removal
+4. Grouping replicates per time points
+5. Phage gene classification with pre-defined thresholds
+6. Calculation of stabilized variance for dataset filtering
+7. Export data
 
-Example note
+File paths only need to be adjusted at the beginning and end of the notebook. The tables are ready to be fed into the database for the PhageExpressionAtlas.
+
 
 ## Customization of workflow
 
