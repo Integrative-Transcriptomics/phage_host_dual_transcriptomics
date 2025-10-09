@@ -66,7 +66,7 @@ nextflow run rnaseq_workflow.nf --reads "/path/to/data/*_{R1,R2}.fastq.gz" --hos
 
 ### Pipeline steps explained briefly
 
-[Overview of the workflow:](/images/Dual_RNA-seq_processing.png)
+![Overview of the workflow:](/images/Dual_RNA-seq_processing.png)
 
 
 
