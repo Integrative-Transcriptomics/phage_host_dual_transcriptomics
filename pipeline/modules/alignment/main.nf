@@ -11,7 +11,7 @@ process MAPPINGPE {
     input:
     val sampleID
     path trimmedReads
-    val alignmentBase
+    path alignmentBase
 
     output:
     val sampleID, emit: sampleID
@@ -20,7 +20,7 @@ process MAPPINGPE {
 
     script:
     """
-    hisat2 -q -p 16 -x $params.outputDir/alignments/$alignmentBase \\
+    hisat2 -q -p 16 -x ${alignmentBase}/Hisat2Base \\
     -1 ${trimmedReads[0]} \\
     -2 ${trimmedReads[1]} \\
     --summary-file ${sampleID}.hisat2.summary.log \\
@@ -37,7 +37,7 @@ process MAPPINGSE {
     input:
     val sampleID
     path trimmedReads
-    val alignmentBase
+    path alignmentBase
 
     output:
     val sampleID, emit: sampleID
@@ -46,7 +46,7 @@ process MAPPINGSE {
 
     script:
     """
-    hisat2 -q -p 16 -x $params.outputDir/alignments/$alignmentBase \\
+    hisat2 -q -p 16 -x ${alignmentBase}/Hisat2Base \\
     -U $trimmedReads \\
     --summary-file ${sampleID}.hisat2.summary.log \\
     -S ${sampleID}.sam

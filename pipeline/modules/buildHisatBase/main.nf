@@ -1,12 +1,12 @@
 /* 
-Building the hisat2 base for alignment
+Building the HISAT2 base for alignment
 */
 
 process BUILDHISAT2BASE {
 
     tag "Build dual reference genome and Hisat2Base for alignment"
     publishDir "$params.outputDir/alignments", pattern: "*.ht2", mode: params.pubDirMode
-    publishDir "$params.outputDir/alignments", patern: "*.gff3", mode: params.pubDirMode
+    publishDir "$params.outputDir/alignments", pattern: "*.gff3", mode: params.pubDirMode
 
     conda "${params.conda_path}/RNASEQ"
 
@@ -17,14 +17,14 @@ process BUILDHISAT2BASE {
     path phageGFF
 
     output:
-    path("Hisat2Base*", arity: '1..*')
-    val "Hisat2Base", emit: alignmentBase
+    path "Hisat2Base", emit: alignmentBase
     path "dualGenome.gff3", emit: dualGFF
 
     script:
     """
     cat $hostGenome $phageGenome > dualGenome.fasta
     cat $hostGFF $phageGFF > dualGenome.gff3
-    hisat2-build -f -p 16 dualGenome.fasta Hisat2Base
+    mkdir Hisat2Base
+    hisat2-build -f -p 16 dualGenome.fasta Hisat2Base/Hisat2Base
     """
 }
