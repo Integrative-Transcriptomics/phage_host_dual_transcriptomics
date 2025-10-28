@@ -2,7 +2,7 @@
 
 process FEATURECOUNTS {
 
-    conda "/home/schauerm/miniconda3/envs/RNASEQ"
+    conda "${params.conda_path}/RNASEQ"
 
     tag "Count reads for all samples"
     publishDir "$params.outputDir/countData", pattern: "*.tsv", mode: params.pubDirMode

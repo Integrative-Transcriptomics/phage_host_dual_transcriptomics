@@ -3,7 +3,7 @@
 */
 process FASTQC {
 
-    conda "/home/schauerm/miniconda3/envs/RNASEQ"
+    conda "${params.conda_path}/RNASEQ"
 
     tag "FastQC analysis of sample ${sample_id}"
     publishDir "$params.outputDir/fastQC", mode: params.pubDirMode

@@ -52,15 +52,17 @@ Input can be specified from command line or in /nf/conf/params.config.
 Example usage for single-end data:
 
 ```bash
-nextflow run rnaseq_workflow.nf --reads "/path/to/data/*.fastq.gz" --hostGenome "/path/to/hostGenome.fasta" --phageGenome "/path/to/phageGenome.fasta" \
---hostGFF "/path/to/hostGenome.gff" --phageGFF "/path/to/phageGenome.gff" --outputDir "/path/to/outputDir" --countFeature "gene" --featureIdentifier "ID"
+nextflow run pipeline --reads "/path/to/data/*.fastq.gz" --hostGenome "/path/to/hostGenome.fasta" --phageGenome "/path/to/phageGenome.fasta" \
+--hostGFF "/path/to/hostGenome.gff" --phageGFF "/path/to/phageGenome.gff" --outputDir "/path/to/outputDir" --countFeature "gene" --featureIdentifier "ID" \
+--conda_path "/home/user/miniconda3/envs"
 ```
 
 Example usage for paired-end data:
 
 ```bash
-nextflow run rnaseq_workflow.nf --reads "/path/to/data/*_{R1,R2}.fastq.gz" --hostGenome "/path/to/hostGenome.fasta" --phageGenome "/path/to/phageGenome.fasta" \
---hostGFF "/path/to/hostGenome.gff" --phageGFF "/path/to/phageGenome.gff" --outputDir "/path/to/outputDir" --countFeature "gene" --featureIdentifier "ID"
+nextflow run pipeline --reads "/path/to/data/*_{R1,R2}.fastq.gz" --hostGenome "/path/to/hostGenome.fasta" --phageGenome "/path/to/phageGenome.fasta" \
+--hostGFF "/path/to/hostGenome.gff" --phageGFF "/path/to/phageGenome.gff" --outputDir "/path/to/outputDir" --countFeature "gene" --featureIdentifier "ID" \
+--conda_path "/home/user/miniconda3/envs"
 ```
 
 

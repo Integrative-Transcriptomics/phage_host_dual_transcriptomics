@@ -8,7 +8,7 @@ process BUILDHISAT2BASE {
     publishDir "$params.outputDir/alignments", pattern: "*.ht2", mode: params.pubDirMode
     publishDir "$params.outputDir/alignments", patern: "*.gff3", mode: params.pubDirMode
 
-    conda "/home/schauerm/miniconda3/envs/RNASEQ"
+    conda "${params.conda_path}/RNASEQ"
 
     input:
     path hostGenome

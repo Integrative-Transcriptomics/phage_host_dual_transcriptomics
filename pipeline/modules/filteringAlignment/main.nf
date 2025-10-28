@@ -4,7 +4,7 @@ Filtering/processing alignment via samtools
 
 process FILTERSAMTOBAM {
 
-    conda "/home/schauerm/miniconda3/envs/RNASEQ"
+    conda "${params.conda_path}/RNASEQ"
 
     tag "Processing alignment file ${sampleID}"
     publishDir "$params.outputDir/alignments", pattern: "*.bam", mode: params.pubDirMode
@@ -31,7 +31,7 @@ process FILTERSAMTOBAM {
 
 process BAMFORCOVERAGE {
 
-    conda "/home/schauerm/miniconda3/envs/RNASEQ"
+    conda "${params.conda_path}/RNASEQ"
 
     tag "Processing bam file for coverage (wiggle files) for ${sampleID}"
     publishDir "${params.outputDir}/alignments", mode: pubDirMode

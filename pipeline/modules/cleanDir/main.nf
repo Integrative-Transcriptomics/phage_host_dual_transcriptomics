@@ -6,7 +6,7 @@ process CLEANUP {
 
     tag "Clean intermediate files such as trimmed reads and sam files"
 
-    conda "/home/schauerm/miniconda3/envs/RNASEQ"
+    conda "${params.conda_path}/RNASEQ"
 
     publishDir "$params.outputDir"
 

@@ -1,11 +1,11 @@
 
-include { FASTQC } from '/ceph/ibmi/it/projects/ML_BI/06_PhageExpressionAtlas/Analysis_pipeline/nf/modules/fastQC'
-include { FASTQCTRIMMED } from '/ceph/ibmi/it/projects/ML_BI/06_PhageExpressionAtlas/Analysis_pipeline/nf/modules/fastQCTrimmed'
-include { MAPPINGPE } from '/ceph/ibmi/it/projects/ML_BI/06_PhageExpressionAtlas/Analysis_pipeline/nf/modules/alignment'
-include { MAPPINGSE } from '/ceph/ibmi/it/projects/ML_BI/06_PhageExpressionAtlas/Analysis_pipeline/nf/modules/alignment'
-include { FILTERSAMTOBAM } from '/ceph/ibmi/it/projects/ML_BI/06_PhageExpressionAtlas/Analysis_pipeline/nf/modules/filteringAlignment'
-include { TRIM_SE } from '/ceph/ibmi/it/projects/ML_BI/06_PhageExpressionAtlas/Analysis_pipeline/nf/modules/trimming'
-include { TRIM_PE } from '/ceph/ibmi/it/projects/ML_BI/06_PhageExpressionAtlas/Analysis_pipeline/nf/modules/trimming'
+include { FASTQC } from '${projectDir}/modules/fastQC'
+include { FASTQCTRIMMED } from '${projectDir}/modules/fastQCTrimmed'
+include { MAPPINGPE } from '${projectDir}/modules/alignment'
+include { MAPPINGSE } from '${projectDir}/modules/alignment'
+include { FILTERSAMTOBAM } from '${projectDir}/modules/filteringAlignment'
+include { TRIM_SE } from '${projectDir}/modules/trimming'
+include { TRIM_PE } from '${projectDir}/modules/trimming'
 
 workflow PROCESSRNASEQ {
     take: 

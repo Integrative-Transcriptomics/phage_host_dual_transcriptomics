@@ -3,7 +3,7 @@
 */
 process FASTQCTRIMMED {
 
-    conda "/home/schauerm/miniconda3/envs/RNASEQ"
+    conda "${params.conda_path}/RNASEQ"
 
     tag "FastQC analysis of trimmed sample ${sampleID}"
     publishDir "$params.outputDir/fastQC", mode: params.pubDirMode
