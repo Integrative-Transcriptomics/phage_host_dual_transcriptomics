@@ -1,11 +1,11 @@
 
-include { FASTQC } from '${projectDir}/modules/fastQC'
-include { FASTQCTRIMMED } from '${projectDir}/modules/fastQCTrimmed'
-include { MAPPINGPE } from '${projectDir}/modules/alignment'
-include { MAPPINGSE } from '${projectDir}/modules/alignment'
-include { FILTERSAMTOBAM } from '${projectDir}/modules/filteringAlignment'
-include { TRIM_SE } from '${projectDir}/modules/trimming'
-include { TRIM_PE } from '${projectDir}/modules/trimming'
+include { FASTQC } from "${projectDir}/modules/fastQC"
+include { FASTQCTRIMMED } from "${projectDir}/modules/fastQCTrimmed"
+include { MAPPINGPE } from "${projectDir}/modules/alignment"
+include { MAPPINGSE } from "${projectDir}/modules/alignment"
+include { FILTERSAMTOBAM } from "${projectDir}/modules/filteringAlignment"
+include { TRIM_SE } from "${projectDir}/modules/trimming"
+include { TRIM_PE } from "${projectDir}/modules/trimming"
 
 workflow PROCESSRNASEQ {
     take: 
