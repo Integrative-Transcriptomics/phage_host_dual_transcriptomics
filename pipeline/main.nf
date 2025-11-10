@@ -4,7 +4,6 @@
 include { BUILDHISAT2BASE } from './modules/buildHisatBase'
 include { PROCESSRNASEQ } from './subworkflows/perReadProcessing'
 include { FEATURECOUNTS } from './modules/readCounting'
-include { PROCESSDRNASEQ } from './subworkflows/dRNAseqProcessing'
 include { CLEANUP } from './modules/cleanDir'
 include { MULTIQC } from './modules/multiQC'
 
@@ -28,7 +27,6 @@ def helpMessage() {
       --phageGFF              Phage genome annotation path in gff3 format.
 
       --pairedEnd             Default is false. Set, if paired-end reads are supplied.
-      --dRNAseq               Default is false. Would activate dRNA-seq specific processing. Currently not established!
 
       --adapter1              Default is sequence of TruSeq adapter.
       --adapter2              Default is sequence of TruSeq adapter.
@@ -49,13 +47,10 @@ workflow {
     
     BUILDHISAT2BASE(params.hostGenome, params.phageGenome, params.hostGFF, params.phageGFF)
 
-    if (params.dRNAseq) { //dRNA-seq specific processing
-        PROCESSDRNASEQ(params.reads, BUILDHISAT2BASE.out.alignmentBase)
-    } 
-    else { //RNA-seq processing
-        PROCESSRNASEQ(params.reads, BUILDHISAT2BASE.out.alignmentBase)
-        FEATURECOUNTS(PROCESSRNASEQ.out.sortedBamFile.collect(), BUILDHISAT2BASE.out.dualGFF)
-        MULTIQC(FEATURECOUNTS.out.countSummary, PROCESSRNASEQ.out.cutadaptReport.collect().ifEmpty([]), PROCESSRNASEQ.out.fastqc_pre.collect(), PROCESSRNASEQ.out.fastqc_post.collect())    
-    }
+    PROCESSRNASEQ(params.reads, BUILDHISAT2BASE.out.alignmentBase)
+    
+    FEATURECOUNTS(PROCESSRNASEQ.out.sortedBamFile.collect(), BUILDHISAT2BASE.out.dualGFF)
+    
+    MULTIQC(FEATURECOUNTS.out.countSummary, PROCESSRNASEQ.out.cutadaptReport.collect().ifEmpty([]), PROCESSRNASEQ.out.fastqc_pre.collect(), PROCESSRNASEQ.out.fastqc_post.collect())    
 
 }

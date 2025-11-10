@@ -12,8 +12,9 @@ dependencies:
   - bioconductor-rsubread=2.0.0=r36h516909a_0
   - bwidget=1.9.16=h9eba36c_0
   - bzip2=1.0.8=h5eee18b_6
-  - ca-certificates=2024.7.2=h06a4308_0
+  - ca-certificates=2025.2.25=h06a4308_0
   - cairo=1.16.0=hb05425b_5
+  - coreutils=9.5=h5eee18b_0
   - curl=7.69.1=hbc83047_0
   - dbus=1.13.18=hb2f20db_0
   - expat=2.6.2=h6a678d5_0
@@ -27,7 +28,8 @@ dependencies:
   - gdbm=1.18=hd4cb3f1_4
   - gfortran_impl_linux-64=7.5.0=ha8c8e06_17
   - gfortran_linux-64=7.5.0=h96bb648_30
-  - glib=2.69.1=h4ff587b_1
+  - glib=2.78.4=h6a678d5_0
+  - glib-tools=2.78.4=h6a678d5_0
   - graphite2=1.3.14=h295c915_1
   - gsl=2.4=h14c3975_4
   - gxx_impl_linux-64=7.5.0=h0a5bf11_17
@@ -44,12 +46,14 @@ dependencies:
   - libcurl=7.69.1=h20c2e04_0
   - libdeflate=1.17=h5eee18b_1
   - libedit=3.1.20210714=h7f8727e_0
-  - libffi=3.3=he6710b0_2
+  - libffi=3.4.4=h6a678d5_1
   - libgcc-devel_linux-64=7.5.0=hbbeae57_17
   - libgcc-ng=11.2.0=h1234567_1
   - libgfortran-ng=7.5.0=ha8ba4b0_17
   - libgfortran4=7.5.0=ha8ba4b0_17
+  - libglib=2.78.4=hdc74915_0
   - libgomp=11.2.0=h1234567_1
+  - libiconv=1.16=h5eee18b_3
   - libpng=1.6.39=h5eee18b_0
   - libssh2=1.10.0=h37d81fd_2
   - libstdcxx-devel_linux-64=7.5.0=hf0c5c8d_17
@@ -61,20 +65,23 @@ dependencies:
   - libxml2=2.9.14=h74e7548_0
   - lz4-c=1.9.4=h6a678d5_1
   - make=4.2.1=h1bed415_1
-  - ncurses=6.2=he6710b0_1
-  - openjdk=11.0.13=h87a67e3_0
+  - ncurses=6.4=h6a678d5_0
+  - nextflow=24.10.5=h2a3209d_1
+  - openjdk=21.0.6=h38aa4c6_0
   - openssl=1.1.1w=h7f8727e_0
   - pango=1.50.7=h05da053_0
   - pcre=8.45=h295c915_0
+  - pcre2=10.42=hebb0a14_1
   - perl=5.34.0=h5eee18b_2
+  - picard=3.4.0=hdfd78af_0
   - pip=24.2=py310h06a4308_0
   - pixman=0.40.0=h7f8727e_1
-  - python=3.10.0=h12debd9_1
+  - python=3.10.11=h7a1cb2a_2
   - r-base=3.6.1=haffb61f_2
   - readline=8.1=h27cfd23_0
-  - samtools=1.10=h2e538c0_3
+  - samtools=1.6=h244ad75_5
   - setuptools=72.1.0=py310h06a4308_0
-  - sqlite=3.40.1=h5082296_0
+  - sqlite=3.45.3=h5eee18b_0
   - subread=2.0.1=h5bf99c6_1
   - sysroot_linux-64=2.17=h57e8cba_10
   - tk=8.6.14=h39e8969_0
@@ -84,4 +91,9 @@ dependencies:
   - xz=5.2.10=h5eee18b_1
   - zlib=1.2.13=h5eee18b_1
   - zstd=1.5.5=hc292b87_0
-prefix: /home/schauerm/miniconda3/envs/RNASEQ
+  - pip:
+      - cutadapt==4.9
+      - dnaio==1.2.2
+      - isal==1.7.1
+      - xopen==2.0.2
+      - zlib-ng==0.5.1
