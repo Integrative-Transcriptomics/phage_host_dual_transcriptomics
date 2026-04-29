@@ -46,6 +46,7 @@ def TPM(df, meta, pse):
     
     lengths = meta.loc[df.index,'Length']
     tpmData = df.copy()
+    tpmData = tpmData.astype('float64')  
 
     for i in range(0,tpmData.shape[1]):
         rpk = (tpmData.iloc[:,i]+pse)/lengths
